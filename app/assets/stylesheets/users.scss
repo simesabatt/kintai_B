@@ -68,6 +68,9 @@
   width: 100%;
 }
 
+
+/* 勤怠画面表示 */
+
 .btn-arrow {
   border: solid 1px #ddd;
   padding: 0px 6px;
@@ -77,3 +80,12 @@
   color: #000;
   background-color: #ddd;
 }
+
+.btn-attendance {
+  padding: 6px 40px;
+}
+
+.td-bottom {
+  padding-top: 10px ;
+  padding-bottom: 4px;
+} 
