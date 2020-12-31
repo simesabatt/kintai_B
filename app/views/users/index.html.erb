@@ -11,10 +11,10 @@
   <div class="row container">
     <div class="col-md-5"></div>
     <div class="col-md-offset-8">
-      <p>ユーザー名検索</p>
-      <%= form_tag(users_path, :method => 'get' ) do %>
-        <%= text_field_tag :search %>
-        <%= submit_tag '検索', :name => nil %>
+      <p class="font-weight-bold">ユーザー名検索</p>
+      <%= form_tag(users_path, :method => 'get', class: "search_form" ) do %>
+        <%= text_field_tag :search, @word, placeholder: "キーワードを入力", class: "search" %>
+        <%= submit_tag '検索', :name => nil,class: "btn-primary" %>
       <% end %>
     </div>
   </div>
