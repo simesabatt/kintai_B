@@ -1,8 +1,31 @@
 <% provide(:title, 'All Users') %>
-<h1>ユーザー一覧</h1>
+
+<% if params[:search].present? %>
+  <h1>検索結果</h1>
+<% else %>
+  <h1>ユーザー一覧</h1>
+<% end %>
+
+
+<!--  検索拡張機能  -->
+  <div class="row container">
+    <div class="col-md-5"></div>
+    <div class="col-md-offset-8">
+      <p>ユーザー名検索</p>
+      <%= form_tag(users_path, :method => 'get' ) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag '検索', :name => nil %>
+      <% end %>
+    </div>
+  </div>
+  
+  <ul>
+    <% link_to @users %>
+  </ul>
+  
 
 <div class="col-md-10 col-md-offset-1">
-  <%= will_paginate %>
+  <%= will_paginate @users, :previous_label => '前へ', :next_label => '次へ' %>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
       <tr>
@@ -41,7 +64,7 @@
       </tr>
     <% end %>
   </table>
-  <%= will_paginate %>
+  <%= will_paginate @users, :previous_label => '前へ', :next_label => '次へ' %>
 </div>
 
 <!--モーダルウインドウ表示-->
